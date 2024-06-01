@@ -13,18 +13,20 @@ const TabComponent = () => {
 
   return (
     <MainContainer>
-      <div className="w-full bg-[#f1f1f1] flex justify-center">
+      <div className="w-full bg-gray-200 py-4 flex justify-center">
         <Tabs
           value={tabIndexValue}
           onChange={handleChangeTabs}
           aria-label="basic tabs example"
         >
-          <Tab label="Login" sx={{ "& > button:hover": "#000000" }} />
+          <Tab label="Login" className="hover:text-black" />
           <Tab label="Register" />
         </Tabs>
       </div>
 
-      {tabIndexValue === 0 ? <Login /> : <Register />}
+      <div className="w-full bg-gray-100 p-4">
+        {tabIndexValue === 0 ? <Login /> : <Register />}
+      </div>
     </MainContainer>
   );
 };

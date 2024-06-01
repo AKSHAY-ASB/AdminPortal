@@ -9,17 +9,15 @@ import {
   MenuItem,
 } from "@mui/material";
 import { menuItems } from "../../utils";
-// import { adminUserStatus } from "../../utils";
 import { AccountCircle } from "@mui/icons-material";
-
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRolesRequest } from "../../slice/rolesSlice";
+import { fetchRolesRequest } from "../../redux/slice/rolesSlice";
 
 const PopperNotify = () => {
   const [userMenuSetting, setUserMenuSetting] = React.useState(null);
   const open = Boolean(userMenuSetting);
 
-  const loginUserRoles = useSelector((state) => state.roles.roles);
+  // const loginUserRoles = useSelector((state) => state.roles.roles);
 
   const dispatch = useDispatch();
 
@@ -54,7 +52,7 @@ const PopperNotify = () => {
         >
           <div className="flex items-center mx-4">
             <AccountCircle />
-            <h1 className="px-2">{loginUserRoles?.username}</h1>
+            {/* <h1 className="px-2">{loginUserRoles?.username}</h1> */}
           </div>
 
           <KeyboardArrowDown />
@@ -99,7 +97,7 @@ const PopperNotify = () => {
           <ListItemIcon>
             <AccountCircle />
           </ListItemIcon>
-          <p className="pl-2">{loginUserRoles?.username}</p>
+          {/* <p className="pl-2">{loginUserRoles?.username}</p> */}
         </MenuItem>
         {menuItems.map((item) => (
           <Box key={item.id}>

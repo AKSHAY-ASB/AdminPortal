@@ -1,85 +1,124 @@
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Button from "../Button";
-import Add from "@mui/icons-material/Add";
-import Modal from "../Modal";
+import { useState } from "react";
+import {
+  MaterialReactTable,
+  createMRTColumnHelper,
+  useMaterialReactTable,
+} from "material-react-table";
+import { Box, IconButton } from "@mui/material";
+import data from "../../utils";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    //   backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.black,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
+import RequestDetailsComponentModal from "../RequestDetailsComponentModal";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
+const columnHelper = createMRTColumnHelper();
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+const columns = [
+  columnHelper.accessor("id", {
+    header: "Sr.No",
+    size: 20,
+  }),
+  columnHelper.accessor("empName", {
+    header: "Employee Name",
+    size: 180,
+  }),
+  columnHelper.accessor("moduleName", {
+    header: "Module Name",
+    size: 180,
+  }),
+  columnHelper.accessor("subModule", {
+    header: "Sub Module",
+    size: 180,
+  }),
+  columnHelper.accessor("requestFor", {
+    header: "Request For",
+    size: 150,
+  }),
+  columnHelper.accessor("status", {
+    header: "Status",
+    size: 150,
+  }),
 ];
 
-const ModuleOverview = () => {
+const RaisedRequestTable = () => {
+  const [employees, setEmployees] = useState(data);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleApprove = (employee) => {
+    const updatedEmployees = employees.map((emp) =>
+      emp.id === employee.id ? { ...emp, status: "Accepted" } : emp
+    );
+    setEmployees(updatedEmployees);
+    closeModal();
+  };
+
+  const handleReject = (employee) => {
+    const updatedEmployees = employees.map((emp) =>
+      emp.id === employee.id ? { ...emp, status: "Rejected" } : emp
+    );
+    setEmployees(updatedEmployees);
+    closeModal();
+  };
+
+  const openModal = (employee) => {
+    setSelectedEmployee(employee);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedEmployee(null);
+  };
+
+  const table = useMaterialReactTable({
+    columns,
+    data: employees,
+    columnFilterDisplayMode: "popover",
+    paginationDisplayMode: "pages",
+    positionToolbarAlertBanner: "bottom",
+    positionActionsColumn: "last",
+    displayColumnDefOptions: { "mrt-row-actions": { size: 200 } },
+    enableRowActions: true,
+    renderRowActions: ({ row }) => (
+      <Box>
+        <PopoverOptions
+          row={row}
+          onApprove={() => openModal(row.original)}
+          onReject={() => openModal(row.original)}
+        />
+      </Box>
+    ),
+  });
+
   return (
     <>
-      <div className='m-5 w-["70%"]'>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 700 }} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>Parameter Set 1</StyledTableCell>
-                <StyledTableCell align="right">Parameter Set </StyledTableCell>
-                <StyledTableCell align="right">Parameter Set 3</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.calories}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <div className="py-3">
-          <Button
-            name="Create new Request"
-            className="border-[1px] border-[#322F35] text-[#322F35] w-48 text-base font-normal"
-          />
-        </div>
-        <Modal />
-      </div>
+      <MaterialReactTable table={table} />
+
+      {isModalOpen && selectedEmployee && (
+        <RequestDetailsComponentModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          selectedEmployee={selectedEmployee}
+          handleApprove={handleApprove}
+          handleReject={handleReject}
+        />
+      )}
     </>
   );
 };
 
-export default ModuleOverview;
+const PopoverOptions = ({ row, onApprove, onReject }) => {
+  const handleApproveClick = () => {
+    onApprove();
+  };
+
+  return (
+    <>
+      <IconButton onClick={handleApproveClick}>
+        <VisibilityIcon />
+      </IconButton>
+    </>
+  );
+};
+
+export default RaisedRequestTable;

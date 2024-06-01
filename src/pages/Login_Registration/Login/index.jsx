@@ -1,16 +1,39 @@
-import { useState } from "react";
-import { Button, MainContainer } from "../../../components";
+import { useEffect, useState } from "react";
+import { MainContainer } from "../../../components";
 import Modal from "../../../components/Modal";
-import { RxCross2 } from "react-icons/rx";
+import InputField from "../../../components/InputField/InputField";
+import TableHeader from "../../../components/TableHeader/TableHeader";
+import { headers } from "../../../utils";
+import ButtonComponent from "../../../components/ButtonComponent/ButtonComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { LOGIN } from "../../../redux/actions/constants";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.login);
+  console.log("user--------> ", user);
+  const { defaultValue, defaultValueMpin } = user || {};
   const [isCheckedEnterPassword, setIsCheckedEnterPassword] = useState(false);
+  const [isCheckedMaximumEnterMpin, setCheckedMaximumEnterMpin] =
+    useState(false);
+
   const [loginInputValue, setLoginInputValue] = useState({
     maxAttemptsEnterPassword: "",
+    maxAttemptsEnterMpin: "",
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalTitle, setModalTitle] = useState("");
+
+  const [isMpinFieldDisabled, setMpinFieldDisabled] = useState(false);
+  const [showApprovalMessagePassword, setShowApprovalMessagePassword] =
+    useState(false);
+  const [showApprovalMessageMpin, setShowApprovalMessageMpin] = useState(false);
+
+  const openModal = (title, message) => {
+    setModalTitle(title);
+    setModalMessage(message);
     setIsModalOpen(true);
   };
 
@@ -20,6 +43,16 @@ const Login = () => {
 
   const handleConfirmParam = () => {
     setIsModalOpen(false);
+
+    dispatch({ type: LOGIN, payload: loginInputValue });
+
+    if (isCheckedEnterPassword) {
+      setShowApprovalMessagePassword(true);
+    }
+
+    if (isCheckedMaximumEnterMpin) {
+      setShowApprovalMessageMpin(true);
+    }
   };
 
   const handleChangeInput = (e) => {
@@ -32,68 +65,129 @@ const Login = () => {
     setIsCheckedEnterPassword(value.trim().length > 0);
   };
 
+  const handleChangeInputMaximumEnterMpin = (e) => {
+    const { name, value } = e.target;
+    setLoginInputValue({
+      ...loginInputValue,
+      [name]: value,
+    });
+
+    setCheckedMaximumEnterMpin(value.trim().length > 0);
+  };
+
   const handleChangeLoginCheckbox = (e) => {
     setIsCheckedEnterPassword(e.target.checked);
+  };
+
+  const handleChangeLoginCheckboxMpin = (e) => {
+    setCheckedMaximumEnterMpin(e.target.checked);
   };
 
   const handleLoginFormSubmit = (e) => {
     e.preventDefault();
 
-    console.log(loginInputValue);
+    openModal(
+      "Confirmation",
+      "Are you sure you want to update this configuration?"
+    );
   };
+
+  const handleCancel = () => {
+    setLoginInputValue({
+      maxAttemptsEnterPassword: "",
+      maxAttemptsEnterMpin: "",
+    });
+
+    setIsCheckedEnterPassword(false);
+    setCheckedMaximumEnterMpin(false);
+  };
+
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+    }
+  }, [user]);
 
   return (
     <>
       <MainContainer>
         <form onSubmit={handleLoginFormSubmit}>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-5">
-            <div className="flex items-center">
-              <label className="block text-sm font-medium leading-6 text-gray-900">
-                Maximum attempts to enter password:
-              </label>
-            </div>
-            <div className="flex items-center w-[10px]">
-              <span>3</span>
-            </div>
-            <div className="w-full md:w-[250px]">
-              <input
-                type="number"
+          <table className="w-full">
+            <TableHeader headers={headers} />
+            <tbody>
+              <InputField
                 name="maxAttemptsEnterPassword"
-                placeholder="Enter attempts"
+                label="Maximum attempts to enter password"
+                placeholder="Enter Attempts"
                 value={loginInputValue?.maxAttemptsEnterPassword}
+                defaultValue={defaultValue}
                 maxLength="10"
-                className="bg-[#f1f1f1] p-2 text-[14px] rounded-[10px]"
                 onChange={handleChangeInput}
+                isChecked={isCheckedEnterPassword}
+                handleCheckbox={handleChangeLoginCheckbox}
+                disabled={showApprovalMessagePassword}
               />
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                name="isCheckedEnterPassword"
-                disabled={!loginInputValue.maxAttemptsEnterPassword.length > 0}
-                checked={isCheckedEnterPassword}
-                onChange={handleChangeLoginCheckbox}
+              {showApprovalMessagePassword && (
+                <tr>
+                  <td colSpan="2" className="text-red-500 text-center pl-2">
+                    Request for approval has been sent for Maximum attempts to
+                    enter password.
+                  </td>
+                </tr>
+              )}
+              <InputField
+                name="maxAttemptsEnterMpin"
+                label="Maximum attempts to enter MPIN"
+                placeholder="Enter Attempts"
+                value={loginInputValue?.maxAttemptsEnterMpin}
+                defaultValue={defaultValueMpin}
+                maxLength="10"
+                onChange={handleChangeInputMaximumEnterMpin}
+                isChecked={isCheckedMaximumEnterMpin}
+                handleCheckbox={handleChangeLoginCheckboxMpin}
+                disabled={isMpinFieldDisabled}
               />
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <button
+              {showApprovalMessageMpin && (
+                <tr>
+                  <td colSpan="2" className="text-red-500 text-center">
+                    Request for approval has been sent for Maximum attempts to
+                    enter MPIN.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+          <div className="flex justify-center mt-5">
+            <ButtonComponent
+              label="Save"
               name="Save"
               type="submit"
-              className={`${
-                isCheckedEnterPassword &&
-                loginInputValue.maxAttemptsEnterPassword
-                  ? "bg-[#000000] text-[#fff]"
-                  : "bg-[#e6e6e6]"
-              } px-10 md:py-3 rounded-[15px]`}
               disabled={
-                !loginInputValue.maxAttemptsEnterPassword ||
-                !isCheckedEnterPassword
+                !(
+                  (isCheckedEnterPassword &&
+                    loginInputValue.maxAttemptsEnterPassword) ||
+                  (isCheckedMaximumEnterMpin &&
+                    loginInputValue.maxAttemptsEnterMpin)
+                )
               }
-              onClick={openModal}
             >
               Save
-            </button>
+            </ButtonComponent>
+            <ButtonComponent
+              name="Cancel"
+              type="button"
+              onClick={handleCancel}
+              disabled={
+                !(
+                  (isCheckedEnterPassword &&
+                    loginInputValue.maxAttemptsEnterPassword) ||
+                  (isCheckedMaximumEnterMpin &&
+                    loginInputValue.maxAttemptsEnterMpin)
+                )
+              }
+            >
+              Cancel
+            </ButtonComponent>
           </div>
         </form>
       </MainContainer>
@@ -102,34 +196,12 @@ const Login = () => {
         <Modal
           isOpen={isModalOpen}
           onClose={closeModal}
-          className="rounded-[10px] p-3 sm:w-[400px]"
-        >
-          <div>
-            <div className="p-4 space-y-2">
-              <div className="flex justify-between items-center ">
-                <h1 className="text-3xl font-medium">Confirmation</h1>
-                <RxCross2 onClick={closeModal} className="cursor-pointer" />
-              </div>
-
-              <p className="text-sm py-3">
-                Are you sure you want to save this record?
-              </p>
-            </div>
-
-            <div className="flex justify-end">
-              <Button
-                name="Cancel"
-                className="w-28  rounded-3xl bg-[#f1f1f1]"
-                onClick={closeModal}
-              />
-              <Button
-                name="Yes"
-                className=" w-28 rounded-3xl bg-gray-700 text-white  text-xs py-6 mx-2"
-                onClick={handleConfirmParam}
-              />
-            </div>
-          </div>
-        </Modal>
+          onConfirm={
+            modalTitle === "Confirmation" ? handleConfirmParam : closeModal
+          }
+          title={modalTitle}
+          confirmation={modalMessage}
+        />
       )}
     </>
   );

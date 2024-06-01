@@ -2,9 +2,34 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import { Suspense, lazy } from "react";
 import RootLayout from "./components/Layouts/RootLayout";
+import AllModules from "./pages/AllModules";
+import AllReports from "./pages/AllReports/index.jsx";
+import AllRequests from "./pages/AllRequests/index.jsx";
+import AssignedModules from "./pages/AssignedModules/AssignedModules.jsx";
+import AddModules from "./pages/Module/AddModules.jsx";
+import ProductsFeatures from "./pages/ProductsFeatures/index.jsx";
+import HomeLoan from "./pages/ProductsFeatures/Loans/HomeLoan/index.jsx";
+import Reports from "./pages/Reports/Reports.jsx";
+import PersonalLoan from "./pages/ProductsFeatures/Loans/PersonalLoan/PersonalLoan.jsx";
+import CarLoan from "./pages/ProductsFeatures/Loans/CarLoan/CarLoan.jsx";
+import TractorLoan from "./pages/ProductsFeatures/Loans/TractorLoan/TractorLoan.jsx";
+import UtilityVehicleLoan from "./pages/ProductsFeatures/Loans/UtilityVehicleLoan/UtilityVehicleLoan.jsx";
+import CommercialVehicleLoan from "./pages/ProductsFeatures/Loans/CommercialVehicleLoan/CommercialVehicleLoan.jsx";
+import UsedCarsLoan from "./pages/ProductsFeatures/Loans/UsedCarsLoan/UsedCarsLoan.jsx";
+import ThreeWheelerLoan from "./pages/ProductsFeatures/Loans/ThreeWheelerLoan/ThreeWheelerLoan.jsx";
+import FixedDeposit from "./pages/ProductsFeatures/Investment/FixedDeposit/FixedDeposit.jsx";
+import MutualFunds from "./pages/ProductsFeatures/Investment/MutualFunds/MutualFunds.jsx";
+import MotorInsurance from "./pages/ProductsFeatures/Insurance/MotorInsurance/MotorInsurance.jsx";
+import LeadGeneration from "./pages/LeadGeneration/index.jsx";
+import HealthInsurance from "./pages/ProductsFeatures/Insurance/HealthInsurance/HealthInsurance.jsx";
+import LifeInsurance from "./pages/ProductsFeatures/Insurance/LifeInsurance/LifeInsurance.jsx";
+import Home_Loan from "./pages/ProductsFeatures/Loans/HomeLoan/Home_Loan.jsx";
+import AddNewUser from "./pages/Users/AddUsers.jsx";
+import RequestModule from "./pages/RequestModule/index.jsx";
+import RaisedRequestTable from "./components/ModuleOverview/index.jsx";
+
 const Home = lazy(() => import("./pages/Home"));
 const ManagedUser = lazy(() => import("./pages/ManagedUser"));
-const Analytics = lazy(() => import("./pages/Analytics"));
 const RecentActivity = lazy(() => import("./pages/RecentActivity"));
 const Support = lazy(() => import("./pages/Support"));
 const Login = lazy(() => import("./pages/Login"));
@@ -25,17 +50,14 @@ function App() {
           index: true,
           element: <Home />,
         },
-        {
-          path: "login",
-          element: <Login />,
-        },
+
         {
           path: "managedUser",
           element: <ManagedUser />,
         },
         {
-          path: "analytics",
-          element: <Analytics />,
+          path: "requestModule",
+          element: <RequestModule />,
         },
         {
           path: "recentActivity",
@@ -46,7 +68,7 @@ function App() {
           element: <Payments />,
         },
         {
-          path: "support",
+          path: "faq",
           element: <Support />,
         },
         {
@@ -69,7 +91,107 @@ function App() {
           path: "checker",
           element: <Checker />,
         },
+        {
+          path: "raisedRequest",
+          element: <RaisedRequestTable />,
+        },
+        {
+          path: "allModules",
+          element: <AllModules />,
+        },
+        {
+          path: "allRequests",
+          element: <AllRequests />,
+        },
+        {
+          path: "allReports",
+          element: <AllReports />,
+        },
+        {
+          path: "assignModule",
+          element: <AssignedModules />,
+        },
+        {
+          path: "addModules",
+          element: <AddModules />,
+        },
+        {
+          path: "addUsers",
+          element: <AddNewUser />,
+        },
+        {
+          path: "productFeatures",
+          element: <ProductsFeatures />,
+        },
+        {
+          path: "home-loan",
+          element: <Home_Loan />,
+        },
+        {
+          path: "productConfiguration",
+          element: <HomeLoan />,
+        },
+        {
+          path: "reports",
+          element: <Reports />,
+        },
+        {
+          path: "personal-loan",
+          element: <PersonalLoan />,
+        },
+        {
+          path: "car-loan",
+          element: <CarLoan />,
+        },
+        {
+          path: "tractor-loan",
+          element: <TractorLoan />,
+        },
+        {
+          path: "utility-vehicle",
+          element: <UtilityVehicleLoan />,
+        },
+        {
+          path: "commercial-vehicle",
+          element: <CommercialVehicleLoan />,
+        },
+        {
+          path: "used-cars",
+          element: <UsedCarsLoan />,
+        },
+        {
+          path: "three-wheeler",
+          element: <ThreeWheelerLoan />,
+        },
+        {
+          path: "fixed-deposit",
+          element: <FixedDeposit />,
+        },
+        {
+          path: "mutual-funds",
+          element: <MutualFunds />,
+        },
+        {
+          path: "motor-insurance",
+          element: <MotorInsurance />,
+        },
+        {
+          path: "health-insurance",
+          element: <HealthInsurance />,
+        },
+        {
+          path: "life-insurance",
+          element: <LifeInsurance />,
+        },
+        {
+          path: "leadGen",
+          element: <LeadGeneration />,
+        },
       ],
+    },
+    {
+      path: "login",
+      element: <Login />,
     },
   ]);
 

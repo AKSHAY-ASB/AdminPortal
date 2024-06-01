@@ -102,27 +102,131 @@ export const checkMakerUsers = {
   isChecker: false,
 };
 
-//  {
-//     id: 2,
-//     username: "module@gmail.com",
-//     isAdmin: false,
-//     isModule: true,
-//     isMaker: false,
-//     isChecker: false,
-//   },
-//   {
-//     id: 3,
-//     username: "maker@gmail.com",
-//     isAdmin: false,
-//     isModule: false,
-//     isMaker: true,
-//     isChecker: false,
-//   },
-//   {
-//     id: 4,
-//     username: "checker@gmail.com",
-//     isAdmin: false,
-//     isModule: false,
-//     isMaker: false,
-//     isChecker: true,
-//   },
+export const modules = ["Loans", "Investment", "Insurance"];
+
+export const investmentModules = ["Fixed Deposit", "Mutual Funds"];
+export const insuranceModules = ["Motor", "Health", "Life"];
+
+export const subModules = [
+  "Home Loan",
+  "Personal Loan",
+  "Car Loan",
+  "Tractor Loan",
+  "Utility Vehicle",
+  "Commercial",
+  "Used Cars",
+  "Three Wheeler",
+];
+
+export const requestAssignModules = [
+  {
+    id: "1",
+    moduleName: "Loans",
+    subModule: "Home loan",
+    request: "Rate of Interest",
+    status: "pending",
+  },
+  {
+    id: "2",
+    moduleName: "Loans",
+    subModule: "Personal loan",
+    request: "Features and Benefits",
+    status: "pending",
+  },
+  {
+    id: "3",
+    moduleName: "Investment",
+    subModule: "Fixed Deposit",
+    request: "Loan Tenure (Years)",
+    status: "pending",
+  },
+  {
+    id: "4",
+    moduleName: "Insurance",
+    subModule: "Life",
+    request: "Loan Tenure (Years):",
+    status: "pending",
+  },
+  {
+    id: "5",
+    moduleName: "Loans",
+    subModule: "Car loan",
+    request: "Min Amount",
+    status: "pending",
+  },
+];
+
+export const status = [{ key: "Active" }, { key: "deActive" }];
+
+const data = [
+  {
+    id: 1,
+    empName: "Akshay Buchade",
+    empEmail: "akshay@gmail.com",
+    moduleName: "Loans",
+    subModule: "Home loan",
+    module: "maker",
+    requestFor: "Rate of Interest",
+    status: "Pending",
+  },
+  {
+    id: 2,
+    empName: "Akshay Buchade",
+    empEmail: "akshay@gmail.com",
+    moduleName: "Loans",
+    subModule: "Personal Loan",
+    module: "Module B",
+    requestFor: "Rate of Interest",
+    status: "Pending",
+  },
+  {
+    id: 3,
+    empName: "Akshay Buchade",
+    empEmail: "akshay@gmail.com",
+    moduleName: "Investment",
+    subModule: "Fixed Deposit",
+    module: "Module C",
+    requestFor: "Rate of Interest",
+    status: "Pending",
+  },
+  {
+    id: 4,
+    empName: "Akshay Buchade",
+    empEmail: "akshay@gmail.com",
+    moduleName: "Loans",
+    subModule: "Car loan",
+    module: "Module D",
+    requestFor: "Min Amount",
+    status: "Pending",
+  },
+  {
+    id: 5,
+    empName: "Akshay Buchade",
+    empEmail: "akshay@gmail.com",
+    moduleName: "Insurance",
+    subModule: "Life Insurance",
+    module: "Module E",
+    requestFor: "Loan Tenure",
+    status: "Pending",
+  },
+];
+
+export default data;
+
+export const modulesName = [
+  { key: "Personal Loans", value: "pl" },
+  { key: "Vehicle Loans", value: "vl" },
+  { key: "Fixed Deposits", value: "fd" },
+  { key: "Mutual Funds", value: "mf" },
+  { key: "Financial Portfolio Planning", value: "fpp" },
+  { key: "Insurance", value: "in" },
+  { key: "Rural Housing", value: "rh" },
+];
+
+export const headers = [
+  "Parameter Name",
+  "Previous Value",
+  "Current Value",
+  "Last Date & Time",
+  "Changed By",
+];

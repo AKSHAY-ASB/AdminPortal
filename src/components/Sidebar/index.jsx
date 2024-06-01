@@ -13,37 +13,71 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
-import { TbGraphFilled } from "react-icons/tb";
 import { FaClock } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-// import { checkUsers } from "../../utils";
 import { useSelector } from "react-redux";
-// import { useSelector } from "react-redux";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
   const [selectedSubmenuItem, setSelectedSubmenuItem] = useState(null);
 
-  const roles = useSelector((state) => state.roles);
+  // const roles = useSelector((state) => state.roles);
 
-  console.log("is admin===>", roles?.roles?.isAdmin);
-  const { isAdmin } = roles?.roles;
+  // console.log("is admin===>", roles?.roles);
+  // const { isAdmin } = roles;
 
-  let submenuItems = [
-    { title: "Admin", role: "admin", link: "/admin", icon: <Face /> },
-    { title: "Module", role: "module", link: "/module", icon: <Face /> },
-    { title: "Maker", role: "maker", link: "/maker", icon: <Face /> },
-    { title: "Checker", role: "checker", link: "/checker", icon: <Face /> },
+  let submenuItems = {
+    admin: [
+      // { title: "Admin", role: "admin", link: "/admin", icon: <Face /> },
+      {
+        title: "Set Module Admin",
+        role: "module",
+        link: "/module",
+        icon: <Face />,
+      },
+    ],
+    module: [
+      { title: "Module", role: "module", link: "/module", icon: <Face /> },
+      { title: "Set Maker", role: "maker", link: "/maker", icon: <Face /> },
+      {
+        title: "Set Checker",
+        role: "checker",
+        link: "/checker",
+        icon: <Face />,
+      },
+    ],
+    maker: [{ title: "Maker", role: "maker", link: "/maker", icon: <Face /> }],
+    checker: [
+      { title: "Checker", role: "checker", link: "/checker", icon: <Face /> },
+    ],
+  };
+
+  function getItemByRole(role) {
+    return submenuItems[role];
+  }
+
+  const getSingleRoles = getItemByRole("maker");
+
+  // console.log(getSingleRoles[0]?.role);
+
+  const logReg = [
+    {
+      title: "Login / Registration",
+      link: "login_reg",
+      icon: <AccountCircleOutlined />,
+    },
+    // { title: "Request Module", link: "/requestModule", icon: <SupportAgent /> },
   ];
 
-  if (isAdmin) {
-    submenuItems = submenuItems?.filter((item) => {
-      return item.role !== "checker" && item.role !== "maker";
-    });
-
-    console.log("submenuItems---->", submenuItems);
-  }
+  useLayoutEffect(() => {
+    if (getSingleRoles[0]?.role === "maker") {
+      // alert();
+      localStorage.setItem("maker", getSingleRoles[0]?.role);
+    } else {
+      localStorage.removeItem("maker");
+    }
+  });
 
   const Menus = [
     { title: "Dashboard", link: "/", Icons: MdOutlineDashboard },
@@ -52,18 +86,23 @@ function Sidebar() {
       link: "/managedUser",
       icon: <ManageAccountsOutlined />,
       submenu: true,
-      submenuItems: submenuItems,
+      submenuItems: getSingleRoles,
     },
+    ...(getSingleRoles[0]?.role !== "checker" &&
+    getSingleRoles[0]?.role !== "admin" &&
+    getSingleRoles[0]?.role !== "module"
+      ? logReg
+      : []),
+
     {
-      title: "Login / Registration",
-      link: "login_reg",
-      icon: <AccountCircleOutlined />,
+      title: "Product Features",
+      link: "/productFeatures",
+      icon: <Face />,
     },
-    // { title: "Media", spacing: true },
-    { title: "Analytics", link: "/analytics", icon: <TbGraphFilled /> },
-    { title: "Recent Activity", link: "/recentActivity", icon: <FaClock /> },
-    { title: "Payments", link: "/payments", icon: <Payments /> },
-    { title: "Support", link: "/support", icon: <SupportAgent /> },
+    // { title: "Lead Generation", link: "/leadGen", icon: <FaClock /> },
+    { title: "Activity Reports", link: "/reports", icon: <FaClock /> },
+    // { title: "Payments", link: "/payments", icon: <Payments /> },
+    { title: "FAQ", link: "/faq", icon: <SupportAgent /> },
   ];
 
   const activeClasses = ({ isActive }) =>
@@ -117,7 +156,11 @@ function Sidebar() {
                  menu.spacing ? "my-9" : "mt-2"
                }`}
               >
-                <NavLink to={menu.link} className={activeClasses}>
+                <NavLink
+                  to={menu.link}
+                  className={activeClasses}
+                  onClick={() => handleSubMenuToggle(index)}
+                >
                   <span className="text-2xl block float-left">
                     {menu.icon ? menu.icon : <Dashboard />}
                   </span>
@@ -128,13 +171,14 @@ function Sidebar() {
                   >
                     {menu.title}
                   </span>
+                  {menu.submenu && open && (
+                    <KeyboardArrowDown
+                      className={`${
+                        openSubmenuIndex === index && "rotate-180"
+                      }`}
+                    />
+                  )}
                 </NavLink>
-                {menu.submenu && open && (
-                  <KeyboardArrowDown
-                    className={`${openSubmenuIndex === index && "rotate-180"}`}
-                    onClick={() => handleSubMenuToggle(index)}
-                  />
-                )}
               </li>
 
               {menu.submenu && openSubmenuIndex === index && (
@@ -147,7 +191,7 @@ function Sidebar() {
                       } ${!open && "hidden"}`}
                       onClick={() => handleSubmenuItemSelect(subIndex)}
                     >
-                      {console.log("sub menu: ", submenuItem)}
+                      {}
                       <NavLink
                         to={submenuItem.link}
                         className="flex items-center gap-x-4 "

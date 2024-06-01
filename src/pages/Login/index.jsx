@@ -7,14 +7,12 @@ import {
   Button,
   Alert,
   Container,
-  // Help,
   CheckBox,
 } from "../../components";
 import { useState } from "react";
-// import { items } from "../../utils";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { checkUsers } from "../../utils";
-import { fetchRolesSuccess } from "../../slice/rolesSlice";
+import { fetchRolesSuccess } from "../../redux/slice/rolesSlice";
 
 const validationSchema = Yup.object({
   mobileNumber: Yup.string()
@@ -34,15 +32,12 @@ const initialValues = {
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { mobileNumber } = useSelector((state) => state.login);
-  // console.log("Mobile Number:", mobileNumber);
 
   const [alertError, setAlertError] = useState(false);
 
   const onSubmit = (values) => {
     try {
       console.log(`Form Data: `, values);
-      // alert();
       dispatch(fetchRolesSuccess(checkUsers));
       navigate("/");
     } catch (error) {
@@ -53,20 +48,7 @@ const Login = () => {
   return (
     <Container>
       <div className="w-[40%] flex gap-4 justify-between">
-        {/* <div className="hidden lg:flex flex-1 w-1/2">
-          <div className="bg-[#D9D9D9] w-full">
-            <div className="h-[671px] flex items-center justify-center">
-              image
-            </div>
-          </div>
-        </div> */}
-
         <div className="relative flex-1 flex lg:gap-10 flex-col p-4">
-          {/* Help  */}
-          {/* <div className="absolute right-7">
-            <Help helpTitle="Login Issues" items={items} />
-          </div> */}
-
           <div className="flex flex-col mt-14">
             <div className="flex flex-col gap-8">
               <h1 className="text-3xl text-center">
