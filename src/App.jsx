@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import RootLayout from "./components/Layouts/RootLayout";
 import AllModules from "./pages/AllModules";
 import AllReports from "./pages/AllReports/index.jsx";
@@ -26,7 +26,11 @@ import LifeInsurance from "./pages/ProductsFeatures/Insurance/LifeInsurance/Life
 import Home_Loan from "./pages/ProductsFeatures/Loans/HomeLoan/Home_Loan.jsx";
 import AddNewUser from "./pages/Users/AddUsers.jsx";
 import RequestModule from "./pages/RequestModule/index.jsx";
-import RaisedRequestTable from "./components/ModuleOverview/index.jsx";
+import RaisedRequestTable from "./components/RaisedRequestTable/index.jsx";
+import Foreclosure from "./pages/Foreclosure/index.jsx";
+import generateToken from "./api/tokenGenerator.js";
+import applyTokenInterceptor from "./api/axiosInterceptor.js";
+// import router from "./routes.jsx";
 
 const Home = lazy(() => import("./pages/Home"));
 const ManagedUser = lazy(() => import("./pages/ManagedUser"));
@@ -41,6 +45,36 @@ const Checker = lazy(() => import("./pages/Checker"));
 const Admin = lazy(() => import("./pages/Admin"));
 
 function App() {
+  useEffect(() => {
+    const generateTokens = async () => {
+      try {
+        // Generate backend token
+        const backendToken = await generateToken(
+          import.meta.env.VITE_BACKEND_CLIENT_ID,
+          import.meta.env.VITE_BACKEND_CLIENT_SECRETE,
+          import.meta.env.VITE_BACKEND_TOKEN_URL,
+          "backendToken"
+        );
+
+        // Generate CMS token
+        const cmsToken = await generateToken(
+          import.meta.env.env.VITE_CMS_CLIENT_ID,
+          import.meta.env.VITE_CMS_CLIENT_SECRETE,
+          import.meta.env.VITE_CMS_TOKEN_URL,
+          "cmsToken"
+        );
+
+        // Apply tokens as interceptor
+        applyTokenInterceptor(cmsToken);
+        applyTokenInterceptor(backendToken);
+      } catch (error) {
+        console.error("Error generating tokens:", error);
+      }
+    };
+
+    generateTokens();
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -186,6 +220,10 @@ function App() {
         {
           path: "leadGen",
           element: <LeadGeneration />,
+        },
+        {
+          path: "foreclosure",
+          element: <Foreclosure />,
         },
       ],
     },

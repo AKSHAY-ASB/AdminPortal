@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Button, MainContainer } from "../../../../components";
-import ProductConfiguration from "../../../ProductConfigration";
+import ToggleButtonComponent from "../../../../components/Toggle";
 
 const LifeInsurance = () => {
-   const products = ["FAQs"];
+  const products = ["FAQs"];
 
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const LifeInsurance = () => {
       <div className="p-6 space-y-2">
         <h1 className="text-2xl text-center font-bold">Toggle Products</h1>
         {products.map((product, index) => (
-          <ProductConfiguration key={index} label={product} />
+          <ToggleButtonComponent key={index} label={product} />
         ))}
         <div className="flex justify-center w-full ">
           <Button

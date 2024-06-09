@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import classes from "../Tailwindcss.jsx";
 
 const InputField = ({
   name,
@@ -28,9 +29,13 @@ const InputField = ({
     };
     return date.toLocaleDateString("en-US", options);
   };
+
   return (
     <tr>
       <td className="py-2 px-4">{label}:</td>
+      {/* <td className="py-2 px-4">
+        <span>10</span>
+      </td> */}
       <td className="py-2 px-4">
         <span>{defaultValue}</span>
       </td>
@@ -42,7 +47,7 @@ const InputField = ({
             placeholder={`${placeholder}`}
             value={value}
             maxLength={maxLength}
-            className="bg-[#fff] p-2 text-[14px] rounded-[10px] w-[150px]"
+            className={classes.inputField.input}
             onChange={onChange}
             disabled={disabled}
           />
@@ -50,7 +55,7 @@ const InputField = ({
           <select
             id={name}
             name={name}
-            className="border border-gray-300 rounded-md px-4 py-2 w-1/2 focus:outline-none focus:border-blue-500"
+            className={classes.inputField.select}
             value={value}
             onChange={onChange}
           >
@@ -62,15 +67,6 @@ const InputField = ({
           </select>
         )}
       </td>
-      {/* <td className="py-2 px-4">
-        <input
-          type="checkbox"
-          name={`isChecked${name}`}
-          disabled={!value.length > 0}
-          checked={isChecked}
-          onChange={handleCheckbox}
-        />
-      </td> */}
       <td>{formatDateTime(currentTime)}</td>
       <td className="text-center">maker</td>
     </tr>

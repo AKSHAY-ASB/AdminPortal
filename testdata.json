@@ -1,0 +1,453 @@
+{
+    "meta": {
+        "total": 1,
+        "query_params": {
+            "language": "en",
+            "product_type": "Loans"
+        }
+    },
+    "data": {
+        "product_feature": [
+            {
+                "product_type": "loans",
+                "product_title": "Loans",
+                "types": [
+                    {
+                        "product_sub_type": "home",
+                        "type_name": "home",
+                        "image": "",
+                        "tabs_details": [
+                            {
+                                "tab_title": "Overview",
+                                "tab_details": {
+                                    "title": "MRHFL Home Loan Financing",
+                                    "description": "Mahindra Home Finance has been transforming lives since 2007 by providing affordable housing loans for construction, renovations, and home extensions. As the largest housing finance company serving rural India, we offer affordable home loans with small EMIs, the option to add joint earning members for larger loans, and no early repayment charges. We understand the complexities of home ownership and our loans cover independent houses, flats\/apartments, and new build properties. Build your dream home with our stress-free loans",
+                                    "link": "https:\/\/www.mahindrahomefinance.com",
+                                    "image": ""
+                                }
+                            },
+                            {
+                                "tab_title": "Features and Benefits",
+                                "tab_details": {
+                                    "title": "Home Loan Features and Benefits",
+                                    "features_title": [
+                                        "Accessible Home Loans",
+                                        "Lending Approach",
+                                        "Personalised APR",
+                                        "Flexible Repayment Options",
+                                        "Documentation Assistance"
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "EMI Calculator",
+                                "tab_details": {
+                                    "title": "Home Loan EMI Calculator",
+                                    "description": "Calculating your EMI has never been easier. Use the Home Loan EMI Calculator here to view an instant summary of your EMI repayments. Unlock the door to your dream home faster!",
+                                    "link": "https:\/\/www.mahindrahomefinance.com\/calculator\/",
+                                    "emi_details": {
+                                        "minLoanAmount": "\u20b9 1L",
+                                        "maxLoanAmount": "\u20b9 25L",
+                                        "minRateOfInterest": "6%",
+                                        "maxRateOfInterest": "26%",
+                                        "minTenure": "12",
+                                        "maxTenure": "60"
+                                    }
+                                }
+                            },
+                            {
+                                "tab_title": "FAQs",
+                                "tab_details": {
+                                    "title": "Frequently Asked Questions (FAQs)",
+                                    "description": "Get all the answers to your top Home Loans FAQs with Mahindra Finance",
+                                    "faqs": [
+                                        {
+                                            "title": "Independent houses",
+                                            "description": "<p>Independent houses and flats\/apartments of a permanent nature having a valid title are applicable. They need to have building approvals from civic authorities and also house properties which may be under construction or completed and ready to occupy.<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "The security required",
+                                            "description": "<p>The security required for a loan would be an equitable or simple registered mortgage of the house being financed. The type of mortgage to be created will depend on the documents of title (ownership) being submitted\/made available. After a preliminary examination of the papers submitted by an applicant, our legal officers will advise the type of mortgage that would be required.<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "Fixed for all customers ",
+                                            "description": "<p>Fixed for all customers other than salaried semi-urban class customers: The rates will be fixed during the tenure of the loan and applicable as prevalent on the date of 1st disbursement, subject to revision every 3 years depending on the money market conditions.Variable for salaried semi-urban and urban class customers: The rates will fluctuate as per the money market conditions and will be notified from time to time.<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "Based on your repayment capacity",
+                                            "description": "<p>Based on your repayment capacity, the loan can be repaid in monthly, quarterly or half-yearly equated instalments by way of EMI\/EQI\/EHI comprising of principal and interest.Repayment of the loan can be made by cash\/cheque\/demand draft at any of MRHFLs offices. Repayment can also be made at collection centres approved by MRHFL.<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "The loan can be paid",
+                                            "description": "<p>The loan can be paid ahead of schedule and MRHFL will not levy early redemption charges.<\/p>, basic_html"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "How to Apply",
+                                "tab_details": {
+                                    "title": "How to Apply for a Home Loan",
+                                    "description": "Our Home Loan application process is easy and gives you a quick turnaround. Once you have matched the eligibility criteria on our online portal, follow the four steps mentioned below and easily secure your home loan. Interest in the home loan can be logged online or at your nearest branch. Follow the steps below to register your interest online.",
+                                    "apply_steps": [
+                                        {
+                                            "title": "Step 1: Fill in your contact details",
+                                            "description": "Start by simply submitting your Name and Number on the form.",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Step 2: Get a Call Back",
+                                            "description": "A Mahindra Finance executive will contact you for additional details.",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Step 3: Document Verification & Approval",
+                                            "description": "We request supporting documents for eligibility check and verification.",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Step 4: Successful Disbursal",
+                                            "description": "Once verified and approved, your loan funds are sanctioned immediately.",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "Eligibility & Documents",
+                                "tab_details": {
+                                    "title": "Home Loan Eligibility & Documents",
+                                    "description": "To be eligible for the loan, your future or existing home must be located within our serviceable area. MRHFL considers various factors such as applicant\/co-applicant income, age, employment stability, savings, family background, assets and liabilities, and more.",
+                                    "disclaimer": "MMFSL reserves the right to approve\/disapprove the loan after the submission of documents.",
+                                    "documents": [
+                                        {
+                                            "title": "KYC Documents",
+                                            "description": "",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Property Documents",
+                                            "description": "",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Application form",
+                                            "description": "",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "product_sub_type": "new_car",
+                        "type_name": "new car",
+                        "image": "",
+                        "tabs_details": [
+                            {
+                                "tab_title": "Overview",
+                                "tab_details": {
+                                    "title": "Car Loan Finance",
+                                    "description": "At Mahindra Finance, we always take a personal approach to lending, ensuring that our loans provide you with the funds you need, when you need them. Our collateral-free Personal Loans are available exclusively customers and Mahindra Group employees. Whether you\u2019re planning a dream wedding, consolidating debts, or renovating your home, our low-interest loans can help you fulfil your dreams as you\u2019re assured of a first-rate experience, from application to approval. Get a loan that fits your life, not the other way around!",
+                                    "link": "https:\/\/www.mahindrahomefinance.com",
+                                    "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=4"
+                                }
+                            },
+                            {
+                                "tab_title": "Features and Benefits",
+                                "tab_details": {
+                                    "title": "Car Loan Features and Benefits",
+                                    "features_title": [
+                                        "Wide Variety of Vehicles",
+                                        "Attractive Interest Rates",
+                                        "Multiple Repayment Options",
+                                        "Minimal Documentation",
+                                        "Quick Disbursal"
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "EMI Calculator",
+                                "tab_details": {
+                                    "title": "Car Loan EMI Calculator",
+                                    "description": "Calculating your EMI has never been easier. Use our Personal Loan EMI Calculator to input your desired amount, interest rate and tenure, and view an instant summary of your EMI repayments. You can also simply adjust the amount and tenure to see how it affects your EMI repayments. Make faster decisions with our Personal Loan EMI Calculator",
+                                    "link": "https:\/\/www.mahindrahomefinance.com\/calculator\/",
+                                    "emi_details": {
+                                        "minLoanAmount": "\u20b91L",
+                                        "maxLoanAmount": "\u20b920L",
+                                        "minRateOfInterest": "6%",
+                                        "maxRateOfInterest": "26%",
+                                        "minTenure": "12",
+                                        "maxTenure": "60"
+                                    }
+                                }
+                            },
+                            {
+                                "tab_title": "FAQs",
+                                "tab_details": {
+                                    "title": "Frequently Asked Questions (FAQs)",
+                                    "description": "Get all the answers to your Personal Loans FAQs with Mahindra Finance",
+                                    "faqs": [
+                                        {
+                                            "title": "Lorem ipsum ",
+                                            "description": "<p>Few hours for our digital loans for customers, and within a day for our employees.<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "Lorem ipsum ",
+                                            "description": "<p>Yes<\/p>, basic_html"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "How to Apply",
+                                "tab_details": {
+                                    "title": "How to Apply for a Car Loan",
+                                    "description": "Our Personal Loan application process is easy and gives you an instant turnaround. The loan application can be made both online and offline which means you can either visit your nearest branch or opt for our quick 4-step online process.",
+                                    "apply_steps": [
+                                        {
+                                            "title": "Step 1: Loan Customization",
+                                            "description": "Plan your loan - Choose the loan amount and tenure requirement.",
+                                            "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=6"
+                                        },
+                                        {
+                                            "title": "Step 2: Complete your KYC",
+                                            "description": "Complete and verify your KYC and personal details.",
+                                            "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=7"
+                                        },
+                                        {
+                                            "title": "Step 3: Set your mandate",
+                                            "description": "Set up the auto-debit mandate via debit card or net-banking",
+                                            "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=8"
+                                        },
+                                        {
+                                            "title": "Step 4: Sign the agreement",
+                                            "description": "e-Sign the agreement and the money shall be disbursed in your bank account.",
+                                            "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=9"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "Eligibility & Documents",
+                                "tab_details": {
+                                    "title": "Car Loan Eligibility & Documents",
+                                    "description": "Mahindra Finance personal loans are available to existing customers with good repayment history and Mahindra Group employees, aged 21-58 that are not in probation\/are active in system.",
+                                    "disclaimer": "MMFSL reserves the right to approve\/disapprove the loan after the submission of documents.",
+                                    "documents": [
+                                        {
+                                            "title": "KYC Documents - Passport\/ PAN\/ Aadhar (Eligibility Age Criteria is 21 years)",
+                                            "description": "",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Proof of Income - Salary Slips, Form 16, IT Returns, Bank Statements",
+                                            "description": "",
+                                            "image": ""
+                                        },
+                                        {
+                                            "title": "Identity and Proof of Address",
+                                            "description": "",
+                                            "image": ""
+                                        },
+                                        {
+                                            "description": "",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "product_sub_type": "personal",
+                        "type_name": "personal",
+                        "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=17",
+                        "tabs_details": [
+                            {
+                                "tab_title": "Overview",
+                                "tab_details": {
+                                    "title": "Overview ",
+                                    "description": "",
+                                    "link": "https:\/\/www.mahindrahomefinance.com\/calculator\/",
+                                    "image": ""
+                                }
+                            },
+                            {
+                                "tab_title": "Features and Benefits",
+                                "tab_details": {
+                                    "title": "About this loan",
+                                    "features_title": [
+                                        "Existing Customers",
+                                        "Employees"
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "EMI Calculator",
+                                "tab_details": {
+                                    "title": "EMI Calculator",
+                                    "description": "Calculating your EMI has never been easier. Use our Personal Loan EMI Calculator to input your desired amount, interest rate and tenure, and view an instant summary of your EMI repayments. You can also simply adjust the amount and tenure to see how it affects your EMI repayments. Make faster decisions with our Personal Loan EMI Calculator.\r\n",
+                                    "link": "https:\/\/www.mahindrahomefinance.com\/calculator\/",
+                                    "emi_details": {
+                                        "minLoanAmount": "1",
+                                        "maxLoanAmount": "25",
+                                        "minRateOfInterest": "6",
+                                        "maxRateOfInterest": "26",
+                                        "minTenure": "12",
+                                        "maxTenure": "60"
+                                    }
+                                }
+                            },
+                            {
+                                "tab_title": "FAQs",
+                                "tab_details": {
+                                    "title": "Frequently Asked Questions (FAQs)",
+                                    "description": "Get all the answers to your Personal Loans FAQs with Mahindra Finance.\r\n",
+                                    "faqs": [
+                                        {
+                                            "title": "",
+                                            "description": "<p>Few hours for our digital loans for customers, and within a day for our employees.<br>&nbsp;<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "test q1",
+                                            "description": "<p>Yes<\/p>, basic_html"
+                                        },
+                                        {
+                                            "title": "test q2",
+                                            "description": "<p>You can get your pre-approved personal loan from here for our mature customers. Our current customers can reach out to the nearest branch or click here.<\/p>, basic_html"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "How to Apply",
+                                "tab_details": {
+                                    "title": "How to Apply for a Personal Loan",
+                                    "description": "Our Personal Loan application process is easy and gives you an instant turnaround. The loan application can be made both online and offline which means you can either visit your nearest branch or opt for our quick 4-step online process,\r\n",
+                                    "apply_steps": [
+                                        {
+                                            "title": "Step 1: Loan Customization",
+                                            "description": "Plan your loan - Choose the loan amount and tenure requirement.\r\n",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "Eligibility & Documents",
+                                "tab_details": {
+                                    "title": "Personal Loan Eligibility & Documents",
+                                    "description": "Mahindra Finance personal loans are available to existing customers with good repayment history and Mahindra Group employees, aged 21-58 that are not in probation\/are active in system.\r\n",
+                                    "disclaimer": "",
+                                    "documents": [
+                                        {
+                                            "title": "Details needed for matured base",
+                                            "description": "Details needed for matured base",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "product_sub_type": "balance_transfer",
+                        "type_name": "balance transfer",
+                        "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=32",
+                        "tabs_details": [
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "description": "",
+                                    "link": "",
+                                    "image": ""
+                                }
+                            },
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "title": "",
+                                    "features_title": [
+                                        ""
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "title": "",
+                                    "description": "",
+                                    "link": "",
+                                    "emi_details": {
+                                        "minLoanAmount": "",
+                                        "maxLoanAmount": "",
+                                        "minRateOfInterest": "",
+                                        "maxRateOfInterest": "",
+                                        "minTenure": "",
+                                        "maxTenure": ""
+                                    }
+                                }
+                            },
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "title": "",
+                                    "description": "",
+                                    "faqs": [
+                                        {
+                                            "title": "",
+                                            "description": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "title": "",
+                                    "description": "",
+                                    "apply_steps": [
+                                        {
+                                            "description": "",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tab_title": "",
+                                "tab_details": {
+                                    "title": "",
+                                    "description": "",
+                                    "disclaimer": "",
+                                    "documents": [
+                                        {
+                                            "description": "",
+                                            "image": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "product_banner": [
+            {
+                "banner_title": "Personal Loan overview",
+                "banner_subtitle": "Product Banner Subtitle",
+                "link": "http:\/\/example.com",
+                "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=3"
+            },
+            {
+                "banner_title": "Top-up offer",
+                "banner_subtitle": "Congratulations! you are eligible for a top-up on your vehicle loans",
+                "link": "internal:\/vehicle_top_up_offer",
+                "image": "https:\/\/api-dev.mmfsl.com\/oneapp\/secure-image?fid=33"
+            }
+        ]
+    }
+}

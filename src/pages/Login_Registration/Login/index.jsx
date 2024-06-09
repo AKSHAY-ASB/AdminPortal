@@ -6,12 +6,13 @@ import TableHeader from "../../../components/TableHeader/TableHeader";
 import { headers } from "../../../utils";
 import ButtonComponent from "../../../components/ButtonComponent/ButtonComponent";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGIN } from "../../../redux/actions/constants";
+import { LOGIN } from "../../../store/actions/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.login);
   console.log("user--------> ", user);
+  // const user = "Hello";
   const { defaultValue, defaultValueMpin } = user || {};
   const [isCheckedEnterPassword, setIsCheckedEnterPassword] = useState(false);
   const [isCheckedMaximumEnterMpin, setCheckedMaximumEnterMpin] =
@@ -108,6 +109,8 @@ const Login = () => {
     }
   }, [user]);
 
+  console.log("header---->", headers);
+
   return (
     <>
       <MainContainer>
@@ -129,7 +132,7 @@ const Login = () => {
               />
               {showApprovalMessagePassword && (
                 <tr>
-                  <td colSpan="2" className="text-red-500 text-center pl-2">
+                  <td colSpan="2" className="text-red-500 pl-4">
                     Request for approval has been sent for Maximum attempts to
                     enter password.
                   </td>
@@ -149,7 +152,7 @@ const Login = () => {
               />
               {showApprovalMessageMpin && (
                 <tr>
-                  <td colSpan="2" className="text-red-500 text-center">
+                  <td colSpan="2" className="text-red-500 pl-4">
                     Request for approval has been sent for Maximum attempts to
                     enter MPIN.
                   </td>

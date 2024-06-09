@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Modal from "../Modal";
+import classes from "../Tailwindcss.jsx";
+import { product_feature } from "../../utils.jsx";
 
 const CardComponents = (props) => {
   const { title, description, buttonText, buttonLink, icon: Icon } = props;
@@ -26,29 +28,41 @@ const CardComponents = (props) => {
     setShowModal(false);
   };
 
+  // const res = product_feature;
+  // const res = product_feature[0].types;
+  // console.log("card component====>", res);
+
+  // res.map((item) => {
+  //   console.log("=======>", item);
+  // });
+
+  // res.types.map((type) => {
+  //   console.log("res======>", type.type_name);
+  // });
+
   return (
     <>
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
+      <div className={classes.card.container}>
         <div>
-          <div className="flex items-center justify-between mb-4">
+          <div className={classes.card.header}>
             <div className="flex items-center">
-              <p className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {title}
-              </p>
+              <p className={classes.card.title}>{title}</p>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className={classes.card.toggleContainer}>
               <div
-                className={`relative inline-block w-12 h-6 transition duration-200 ease-linear rounded-full ${
-                  isOn ? "bg-green-400" : "bg-gray-300"
-                }`}
+                className={
+                  isOn
+                    ? classes.card.toggleSwitchOn
+                    : classes.card.toggleSwitchOff
+                }
                 onClick={handleToggle}
               >
                 <label
-                  className={`absolute left-0 w-6 h-6 bg-white border-2 rounded-full cursor-pointer transition transform duration-200 ease-linear ${
+                  className={
                     isOn
-                      ? "translate-x-full border-green-400"
-                      : "border-gray-300"
-                  }`}
+                      ? classes.card.toggleLabelOn
+                      : classes.card.toggleLabelOff
+                  }
                 ></label>
                 <input
                   type="checkbox"
@@ -57,25 +71,25 @@ const CardComponents = (props) => {
                   onChange={handleToggle}
                 />
               </div>
-              <span className="text-gray-700 dark:text-gray-400">
+              <span className={classes.card.toggleText}>
                 {!isOn ? "Enable" : "Disable"}
               </span>
             </div>
           </div>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {description}
-          </p>
+          <p className={classes.card.description}>{description}</p>
         </div>
-        <div className="flex justify-end">
+        <div className={classes.card.footer}>
           <Link
             to={buttonLink}
-            className={`flex items-center ${
-              isOn ? "text-blue-600 dark:text-blue-400" : "text-gray-400"
-            } pointer-events-${isOn ? "auto" : "none"}`}
+            className={
+              isOn ? classes.card.linkEnabled : classes.card.linkDisabled
+            }
           >
             {buttonText}
             <ArrowForwardIcon
-              className={`ml-1 ${isOn ? "visible" : "invisible"}`}
+              className={
+                isOn ? classes.card.arrowVisible : classes.card.arrowInvisible
+              }
             />
           </Link>
         </div>

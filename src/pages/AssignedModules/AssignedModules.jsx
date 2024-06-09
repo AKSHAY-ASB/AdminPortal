@@ -5,7 +5,13 @@ import { Input, Button, Alert, Container, Select } from "../../components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { checkUsers, modules, status } from "../../utils";
-import { fetchRolesSuccess } from "../../redux/slice/rolesSlice";
+// import { fetchRolesSuccess } from "../../redux/slice/rolesSlice";
+
+const initialValues = {
+  mobileNumber: "",
+  password: "",
+  rememberMe: false,
+};
 
 const validationSchema = Yup.object({
   mobileNumber: Yup.string()
@@ -16,14 +22,10 @@ const validationSchema = Yup.object({
   rememberMe: Yup.boolean(),
 });
 
-const initialValues = {
-  mobileNumber: "",
-  password: "",
-  rememberMe: false,
-};
+
 
 const AssignedModules = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [alertError, setAlertError] = useState(false);
 
@@ -31,7 +33,7 @@ const AssignedModules = () => {
     try {
       console.log(`Form Data: `, values);
       // alert();
-      dispatch(fetchRolesSuccess(checkUsers));
+      // dispatch(fetchRolesSuccess(checkUsers));
       navigate("/");
     } catch (error) {
       setAlertError(true);

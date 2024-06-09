@@ -39,7 +39,7 @@ const RequestDetailsComponentModal = ({
           boxShadow: 24,
           p: 4,
           borderRadius: 2,
-          position: "relative",
+          //   position: "relative",
         }}
       >
         <IconButton
@@ -62,16 +62,16 @@ const RequestDetailsComponentModal = ({
           <strong>Sub Module:</strong> {selectedEmployee.subModule}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          <strong>Request For:</strong> {selectedEmployee.requestFor}
+          <strong>Request For:</strong> {selectedEmployee.request}
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        {/* <Typography variant="body1" gutterBottom>
           <strong>Previous Loan Amount:</strong>{" "}
           {selectedEmployee.previousLoanAmount}
         </Typography>
         <Typography variant="body1" gutterBottom>
           <strong>Requested Loan Amount:</strong>{" "}
           {selectedEmployee.requestedLoanAmount}
-        </Typography>
+        </Typography> */}
         <Box
           sx={{
             display: "flex",

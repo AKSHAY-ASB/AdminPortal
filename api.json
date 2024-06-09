@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "6810762b-3348-4650-96cf-1b9ef223af9f",
+		"name": "oneapp-Drupal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34755833"
+	},
+	"item": [
+		{
+			"name": "CMS-prodfeatures",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MNd8iNGonxYiAZqy8LiyWfVWOhNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/mahfin-product-features?language=en&product_type=Loans",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"mahfin-product-features"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "en"
+						},
+						{
+							"key": "product_type",
+							"value": "Loans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MNd8iNGonxYiAZqy8LiyWfVWOhNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/mahfin-product-features?language=en&product_type=Loans",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"mahfin-product-features"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "en"
+						},
+						{
+							"key": "product_type",
+							"value": "Loans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-static content",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MNd8iNGonxYiAZqy8LiyWfVWOhNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/static-content?category=privacy_policy",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"static-content"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "privacy_policy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-static label",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MNd8iNGonxYiAZqy8LiyWfVWOhNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/static-label",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"static-label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-faq",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "oNzMfvuDu0uRb9HGa9UDL3eVxMbD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/faq",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"faq"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-executive",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "oNzMfvuDu0uRb9HGa9UDL3eVxMbD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/call-executive",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"call-executive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-response",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MNd8iNGonxYiAZqy8LiyWfVWOhNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/static-response?category=reasons",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"static-response"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "reasons"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-languages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vYZcFMY6GkAmpT1AybexiuWkRU9S",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/languages",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CMS-images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vYZcFMY6GkAmpT1AybexiuWkRU9S",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-encryption-key",
+						"value": "fgzQEyLRg5LujrFnPl0hZ/zfLISa84x98woRhKVIXwFhTUEvvHNKa26/qblA4LWWC8TlxdUFKB6unhzW0CfteugtobopM1yqFS6tnNB18RAAqhbcVpnJZpRYIdL/tfckUmi/OKJOeAWDz0Xik5xtN/oKibiV6EUlxHisr196+IA=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oneapp/api/v1/languages",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oneapp",
+						"api",
+						"v1",
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "3hBr0XcK8gxz2Z2GAVY0sTGcxnp74UhFiz1DLKkuBJDA1IP2hcH1y5zejWJfQWaa",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "0vpk1L4V0WLkbOoRLV4H737byD5YOA8rpJJvog4Wba4aJRtt",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic MHZwazFMNFYwV0xrYk9vUkxWNEg3MzdieUQ1WU9BOHJwSkp2b2c0V2JhNGFKUnR0OjNoQnIwWGNLOGd4ejJaMkdBVlkwc1RHY3hucDc0VWhGaXoxRExLa3VCSkRBMUlQMmhjSDF5NXplaldKZlFXYWE="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api-dev.mmfsl.com/oauth/cc/v1/token",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"mmfsl",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"cc",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

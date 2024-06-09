@@ -100,8 +100,9 @@ function Sidebar() {
       icon: <Face />,
     },
     // { title: "Lead Generation", link: "/leadGen", icon: <FaClock /> },
+    { title: "Foreclosure", link: "/foreclosure", icon: <FaClock /> },
     { title: "Activity Reports", link: "/reports", icon: <FaClock /> },
-    // { title: "Payments", link: "/payments", icon: <Payments /> },
+    { title: "Payments Reports", link: "/payments", icon: <Payments /> },
     { title: "FAQ", link: "/faq", icon: <SupportAgent /> },
   ];
 

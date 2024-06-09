@@ -1,4 +1,4 @@
-import ProductPage from "../../../ProductConfigration/ProductsPage";
+import ProductPage from "../../../ProductConfigration";
 
 const UtilityVehicleLoan = () => {
   const products = [

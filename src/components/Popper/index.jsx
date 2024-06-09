@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import { menuItems } from "../../utils";
 import { AccountCircle } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRolesRequest } from "../../redux/slice/rolesSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchRolesRequest } from "../../redux/slice/rolesSlice";
 
 const PopperNotify = () => {
   const [userMenuSetting, setUserMenuSetting] = React.useState(null);
@@ -19,11 +19,11 @@ const PopperNotify = () => {
 
   // const loginUserRoles = useSelector((state) => state.roles.roles);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchRolesRequest());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchRolesRequest());
+  // }, [dispatch]);
 
   const handleClick = (event) => {
     setUserMenuSetting(event.currentTarget);

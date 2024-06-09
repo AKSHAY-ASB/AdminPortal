@@ -230,3 +230,159 @@ export const headers = [
   "Last Date & Time",
   "Changed By",
 ];
+
+export const headersLeadGen = [
+  "Parameter Name",
+  "Lead Count",
+  "Cool off period",
+  "Current Value",
+  "Last Date & Time",
+  "Changed By",
+];
+
+export const product_feature = [
+  {
+    product_type: "loans",
+    product_title: "Loans",
+    types: [
+      {
+        product_sub_type: "home",
+        type_name: "home",
+        tabs_details: [
+          {
+            tab_title: "Overview",
+          },
+          {
+            tab_title: "Features and Benefits",
+          },
+          {
+            tab_title: "EMI Calculator",
+          },
+          {
+            tab_title: "FAQs",
+          },
+          {
+            tab_title: "How to Apply",
+          },
+          {
+            tab_title: "Eligibility & Documents",
+          },
+        ],
+      },
+      {
+        product_sub_type: "new_car",
+        type_name: "new car",
+        tabs_details: [
+          {
+            tab_title: "Overview",
+          },
+          {
+            tab_title: "Features and Benefits",
+          },
+        ],
+      },
+      {
+        product_sub_type: "personal",
+        type_name: "personal",
+        tabs_details: [
+          {
+            tab_title: "Overview",
+          },
+          {
+            tab_title: "Features and Benefits",
+          },
+          {
+            tab_title: "EMI Calculator",
+          },
+        ],
+      },
+      {
+        product_sub_type: "balance_transfer",
+        type_name: "balance transfer",
+        tabs_details: [
+          {
+            tab_title: "UPT transfer",
+          },
+          {
+            tab_title: "NEFT transfer",
+          },
+          {
+            tab_title: "Bank transfer",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    product_type: "investment",
+    product_title: "Investment",
+    types: [
+      {
+        product_sub_type: "Fixed Deposit",
+        type_name: "fixedDeposit",
+        tabs_details: [
+          {
+            tab_title: "Features and Benefits",
+          },
+          {
+            tab_title: "Interest Rates",
+          },
+          {
+            tab_title: "FAQs",
+          },
+          {
+            tab_title: "How to Apply",
+          },
+          {
+            tab_title: "Eligibility & Documents",
+          },
+        ],
+      },
+      {
+        product_sub_type: "Mutual Funds",
+        type_name: "mutualFunds",
+        tabs_details: [
+          {
+            tab_title: "Overview",
+          },
+          {
+            tab_title: "Features and Benefits",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    product_type: "insurance",
+    product_title: "Insurance",
+    types: [
+      {
+        product_sub_type: "motor",
+        type_name: "Motor",
+        tabs_details: [
+          {
+            tab_title: "FAQs",
+          },
+        ],
+      },
+      {
+        product_sub_type: "health",
+        type_name: "Health",
+        tabs_details: [
+          {
+            tab_title: "FAQs",
+          },
+        ],
+      },
+      {
+        product_sub_type: "life",
+        type_name: "Life",
+        tabs_details: [
+          {
+            tab_title: "FAQs",
+          },
+        ],
+      },
+    ],
+  },
+];

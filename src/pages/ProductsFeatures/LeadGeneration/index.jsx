@@ -3,7 +3,7 @@ import { MainContainer } from "../../../components";
 import Modal from "../../../components/Modal";
 import InputField from "../../../components/InputField/InputField";
 import TableHeader from "../../../components/TableHeader/TableHeader";
-import { headers } from "../../../utils";
+import { headersLeadGen } from "../../../utils";
 import ButtonComponent from "../../../components/ButtonComponent/ButtonComponent";
 
 const LeadGeneration = () => {
@@ -65,10 +65,13 @@ const LeadGeneration = () => {
 
   return (
     <>
+      <div className="px-9">
+        <h1 className="text-2xl">Lead Generation:</h1>
+      </div>
       <MainContainer>
         <form onSubmit={handleLoginFormSubmit}>
           <table className="w-full">
-            <TableHeader headers={headers} />
+            <TableHeader headers={headersLeadGen} />
             <tbody>
               <InputField
                 name="nextAttemptDuration"

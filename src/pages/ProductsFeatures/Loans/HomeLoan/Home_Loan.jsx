@@ -1,5 +1,6 @@
 import { MainContainer } from "../../../../components";
-import ProductsPage from "../../../ProductConfigration/ProductsPage";
+import Breadcrumb from "../../../../components/Breadcrumb";
+import ProductConfiguration from "../../../ProductConfigration";
 
 const Home_Loan = () => {
   const products = [
@@ -12,7 +13,8 @@ const Home_Loan = () => {
   return (
     <>
       <MainContainer>
-        <ProductsPage
+        <Breadcrumb />
+        <ProductConfiguration
           title="Home Loan config products"
           products={products}
           buttonLabel="Configure product features"

@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
-  // createRow,
   useMaterialReactTable,
 } from "material-react-table";
 import {
@@ -23,14 +22,9 @@ import {
 } from "@tanstack/react-query";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {
-  modules,
-  subModules,
-  requestAssignModules,
-  investmentModules,
-  insuranceModules,
-} from "../../utils";
+import { modules, subModules } from "../../utils";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AddUsers = () => {
   const [validationErrors, setValidationErrors] = useState({});
@@ -52,13 +46,11 @@ const AddUsers = () => {
           select: true,
           error: !!validationErrors?.moduleName,
           helperText: validationErrors?.moduleName,
-          //remove any previous validation errors when user focuses on the input
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
               moduleName: undefined,
             }),
-          //optionally add validation checking for onBlur or onChange
         },
         size: 250,
       },
@@ -71,7 +63,6 @@ const AddUsers = () => {
           select: true,
           error: !!validationErrors?.subModule,
           helperText: validationErrors?.subModule,
-          //remove any previous validation errors when user focuses on the input
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
@@ -85,12 +76,12 @@ const AddUsers = () => {
         header: "Comment for Request",
         muiEditTextFieldProps: {
           required: true,
-          error: !!validationErrors?.lastName,
-          helperText: validationErrors?.lastName,
+          error: !!validationErrors?.request,
+          helperText: validationErrors?.request,
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
-              lastName: undefined,
+              request: undefined,
             }),
         },
         size: 300,
@@ -99,24 +90,19 @@ const AddUsers = () => {
     [validationErrors]
   );
 
-  //call CREATE hook
-  const { mutateAsync: createUser, isPending: isCreatingUser } =
+  const { mutateAsync: createUser, isLoading: isCreatingUser } =
     useCreateUser();
-  //call READ hook
   const {
     data: fetchedUsers = [],
     isError: isLoadingUsersError,
     isFetching: isFetchingUsers,
     isLoading: isLoadingUsers,
   } = useGetUsers();
-  //call UPDATE hook
-  const { mutateAsync: updateUser, isPending: isUpdatingUser } =
+  const { mutateAsync: updateUser, isLoading: isUpdatingUser } =
     useUpdateUser();
-  //call DELETE hook
-  const { mutateAsync: deleteUser, isPending: isDeletingUser } =
+  const { mutateAsync: deleteUser, isLoading: isDeletingUser } =
     useDeleteUser();
 
-  //CREATE action
   const handleCreateUser = async ({ values, table }) => {
     const newValidationErrors = validateUser(values);
     if (Object.values(newValidationErrors).some((error) => error)) {
@@ -125,10 +111,9 @@ const AddUsers = () => {
     }
     setValidationErrors({});
     await createUser(values);
-    table.setCreatingRow(null); //exit creating mode
+    table.setCreatingRow(null);
   };
 
-  //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
     const newValidationErrors = validateUser(values);
     if (Object.values(newValidationErrors).some((error) => error)) {
@@ -137,10 +122,9 @@ const AddUsers = () => {
     }
     setValidationErrors({});
     await updateUser(values);
-    table.setEditingRow(null); //exit editing mode
+    table.setEditingRow(null);
   };
 
-  //DELETE action
   const openDeleteConfirmModal = (row) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       deleteUser(row.original.id);
@@ -150,8 +134,8 @@ const AddUsers = () => {
   const table = useMaterialReactTable({
     columns,
     data: fetchedUsers,
-    createDisplayMode: "modal", //default ('row', and 'custom' are also available)
-    editDisplayMode: "modal", //default ('row', 'cell', 'table', and 'custom' are also available)
+    createDisplayMode: "modal",
+    editDisplayMode: "modal",
     enableEditing: true,
     getRowId: (row) => row.id,
     positionActionsColumn: "last",
@@ -171,28 +155,26 @@ const AddUsers = () => {
     onCreatingRowSave: handleCreateUser,
     onEditingRowCancel: () => setValidationErrors({}),
     onEditingRowSave: handleSaveUser,
-    //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
         <DialogTitle variant="h6">Create New Request</DialogTitle>
         <DialogContent
           sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}
         >
-          {internalEditComponents} {/* or render custom edit components here */}
+          {internalEditComponents}
         </DialogContent>
         <DialogActions>
           <MRT_EditActionButtons variant="text" table={table} row={row} />
         </DialogActions>
       </>
     ),
-    //optionally customize modal content
     renderEditRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
         <DialogTitle variant="h3">Edit User</DialogTitle>
         <DialogContent
           sx={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
         >
-          {internalEditComponents} {/* or render custom edit components here */}
+          {internalEditComponents}
         </DialogContent>
         <DialogActions>
           <MRT_EditActionButtons variant="text" table={table} row={row} />
@@ -223,7 +205,7 @@ const AddUsers = () => {
         Create New Request
       </Button>
     ),
-    status: {
+    state: {
       isLoading: isLoadingUsers,
       isSaving: isCreatingUser || isUpdatingUser || isDeletingUser,
       showAlertBanner: isLoadingUsersError,
@@ -234,87 +216,71 @@ const AddUsers = () => {
   return <MaterialReactTable table={table} />;
 };
 
-//CREATE hook (post new user to api)
 function useCreateUser() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   return useMutation({
     mutationFn: async (user) => {
-      // Send API update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Fake API call
-      return Promise.resolve();
+      const response = await axios.post("http://localhost:3000/requests", user);
+      return response.data;
     },
-    // Client side optimistic update
-    onMutate: (newUserInfo) => {
-      queryClient.setQueryData(["users"], (prevUsers) => {
-        const maxId = prevUsers.reduce(
-          (max, user) => Math.max(max, user.id),
-          0
-        );
-        const newId = maxId + 1;
-
-        return [
-          ...prevUsers,
-          {
-            ...newUserInfo,
-            id: newId,
-          },
-        ];
-      });
+    onMutate: async (newUser) => {
+      await queryClient.cancelQueries(["users"]);
+      const previousUsers = queryClient.getQueryData(["users"]);
+      const maxId = previousUsers.reduce(
+        (max, user) => Math.max(max, user.id),
+        0
+      );
+      newUser.id = maxId + 1;
+      queryClient.setQueryData(["users"], (old) => [...old, newUser]);
+      return { previousUsers };
     },
-    onSuccess: () => {
+    onError: (err, newUser, context) => {
+      queryClient.setQueryData(["users"], context.previousUsers);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries(["users"]);
       navigate("/productConfiguration");
     },
   });
 }
-//READ hook (get users from api)
+
 function useGetUsers() {
   return useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      //send api request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve(requestAssignModules);
+      const response = await axios.get("http://localhost:3000/requests");
+      return response.data;
     },
     refetchOnWindowFocus: false,
   });
 }
 
-//UPDATE hook (put user in api)
 function useUpdateUser() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (user) => {
-      //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
-    },
-    //client side optimistic update
-    onMutate: (newUserInfo) => {
-      queryClient.setQueryData(["users"], (prevUsers) =>
-        prevUsers?.map((prevUser) =>
-          prevUser.id === newUserInfo.id ? newUserInfo : prevUser
-        )
+      const response = await axios.put(
+        `http://localhost:3000/requests/${user.id}`,
+        user
       );
+      return response.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["users"]);
     },
   });
 }
 
-//DELETE hook (delete user in api)
 function useDeleteUser() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (userId) => {
-      //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+      await axios.delete(`http://localhost:3000/requests/${userId}`);
     },
-    //client side optimistic update
-    onMutate: (userId) => {
-      queryClient.setQueryData(["users"], (prevUsers) =>
-        prevUsers?.filter((user) => user.id !== userId)
-      );
+    onSuccess: () => {
+      queryClient.invalidateQueries(["users"]);
     },
   });
 }
@@ -334,8 +300,11 @@ const validateRequired = (value) => !!value.length;
 function validateUser(user) {
   return {
     moduleName: !validateRequired(user.moduleName)
-      ? "First Name is Required"
+      ? "Module Name is Required"
       : "",
-    subModule: !validateRequired(user.subModule) ? "Last Name is Required" : "",
+    subModule: !validateRequired(user.subModule)
+      ? "Sub Module is Required"
+      : "",
+    request: !validateRequired(user.request) ? "Request is Required" : "",
   };
 }
